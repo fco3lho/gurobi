@@ -7,8 +7,8 @@ from gurobipy import GRB
 # n: Número de itens
 # m: Número de mochilas
 
-def read_file():
-  with open ('data.txt', 'r') as file:
+def read_file(file):
+  with open (file, 'r') as file:
     n, m = map(int, file.readline().strip().split())
     b = [None for i in range(m)]
     w = [None for i in range(n)]
@@ -60,5 +60,5 @@ def gurobi(n, m, b, w, p):
   else:
       print("Não foi encontrada uma solução ótima.")
 
-n, m, b, w, p = read_file()
+n, m, b, w, p = read_file("./mkp/mkp_instances/mkp_10.txt")
 gurobi(n, m, b, w, p)
